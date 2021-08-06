@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="624.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aserradero.vista.preferencias.PreferenciasControlador">
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="15.0" prefWidth="200.0" spacing="15.0" styleClass="hbox-header" BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="label-header" text="Preferencias" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <TabPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="504.0" prefWidth="638.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab closable="false" text="Usuarios">
+               <content>
+                  <BorderPane>
+                     <top>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <GridPane alignment="CENTER" hgap="5.0" prefHeight="227.0">
+                                <columnConstraints>
+                                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="154.0" minHeight="0.0" prefHeight="52.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="213.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label styleClass="label-bold" text="Contraseña de Administración:" />
+                                    <PasswordField fx:id="pfAdministrador" prefHeight="25.0" prefWidth="185.0" GridPane.columnIndex="1" />
+                                    <Label styleClass="label-bold" text="Contraseña de Producción:" GridPane.rowIndex="1" />
+                                    <PasswordField fx:id="pfEmpleado" prefHeight="25.0" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="50.0" left="50.0" right="200.0" top="50.0" />
+                           </padding>
+                        </VBox>
+                     </top>
+                     <bottom>
+                        <BorderPane styleClass="border-pane" BorderPane.alignment="CENTER">
+                           <center>
+                              <JFXButton fx:id="btnGuardarCambios" onAction="#actionGuardarCambios" prefHeight="37.0" prefWidth="400.0" styleClass="boton-verde" text="Guardar cambios" BorderPane.alignment="CENTER">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="CHECK" size="20" styleClass="font-icon-check" />
+                                 </graphic>
+                              </JFXButton>
+                           </center>
+                        </BorderPane>
+                     </bottom>
+                  </BorderPane>
+               </content>
+               <graphic>
+                  <FontAwesomeIconView glyphName="USER" size="20" />
+               </graphic>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>

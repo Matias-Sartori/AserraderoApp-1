@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane prefHeight="554.0" prefWidth="702.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aserradero.vista.productosEliminados.ProductosEliminadosControlador">
+   <top>
+      <HBox styleClass="hbox-header" BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="label-title" text="Historial de productos eliminados" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <center>
+            <TableView fx:id="tablaProductosEliminados" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="columnaEspesor" prefWidth="75.0" text="Espesor" />
+                <TableColumn fx:id="columnaAncho" prefWidth="75.0" text="Ancho" />
+                  <TableColumn fx:id="columnaLargo" prefWidth="75.0" text="Largo" />
+                  <TableColumn fx:id="columnaPies" prefWidth="75.0" text="Pie" />
+                  <TableColumn fx:id="columnaMotivo" prefWidth="75.0" text="Motivo" />
+                  <TableColumn fx:id="columnaFechaEliminacion" prefWidth="75.0" text="Fecha de eliminación" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </center>
+      </BorderPane>
+   </center>
+</BorderPane>

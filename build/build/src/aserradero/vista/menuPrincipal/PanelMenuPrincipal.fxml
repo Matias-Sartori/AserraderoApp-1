@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane fx:id="panelRaiz" prefHeight="365.0" prefWidth="407.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aserradero.vista.menuPrincipal.MenuPrincipalControlador">
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
+         <children>
+            <JFXButton fx:id="btnNuevoPedido" buttonType="RAISED" contentDisplay="TOP" graphicTextGap="10.0" onAction="#actionNuevoPedido" prefHeight="400.0" prefWidth="160.0" text="Nueva orden de Venta">
+               <graphic>
+                  <FontAwesomeIconView glyphName="PLUS" size="50" />
+               </graphic>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </JFXButton>
+            <JFXButton fx:id="btnNuevoCliente" buttonType="RAISED" contentDisplay="TOP" graphicTextGap="10.0" onAction="#actionNuevoCliente" prefHeight="400.0" prefWidth="160.0" text="Nuevo Cliente" GridPane.columnIndex="1">
+               <graphic>
+                  <FontAwesomeIconView glyphName="USER_PLUS" size="50" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnPedidosStock" buttonType="RAISED" contentDisplay="TOP" graphicTextGap="10.0" onAction="#actionPedidosStock" prefHeight="400.0" prefWidth="160.0" text="Cargas de Stock" GridPane.columnIndex="2">
+               <graphic>
+                  <FontAwesomeIconView glyphName="BARS" size="50" />
+               </graphic>
+            </JFXButton>
+            <Separator prefWidth="200.0" GridPane.rowIndex="1" />
+            <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Separator prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+</BorderPane>

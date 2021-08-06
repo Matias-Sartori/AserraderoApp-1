@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<SplitPane fx:id="panelRaiz" dividerPositions="0.5532445923460898" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aserradero.vista.stock.StockControlador">
+   <items>
+      <BorderPane prefHeight="600.0" prefWidth="996.0">
+         <top>
+            <BorderPane prefHeight="12.0" prefWidth="598.0" styleClass="border-pane" BorderPane.alignment="CENTER">
+               <left>
+                  <Label prefHeight="29.0" prefWidth="80.0" styleClass="label-bold" text="Filtrar por:" BorderPane.alignment="CENTER" />
+               </left>
+               <center>
+                  <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="682.0" spacing="5.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <TextField fx:id="filtroEspesor" prefHeight="31.0" prefWidth="67.0" promptText="Espesor" />
+                        <TextField fx:id="filtroAncho" prefHeight="31.0" prefWidth="67.0" promptText="Ancho" />
+                        <TextField fx:id="filtroLargo" prefHeight="31.0" prefWidth="67.0" promptText="Largo" />
+                        <Separator orientation="VERTICAL" prefHeight="200.0" />
+                        <Label styleClass="label-bold" text="Clasificar por:" />
+                        <JFXRadioButton fx:id="radioClasificado" text="Espesor y ancho" />
+                        <JFXRadioButton fx:id="radioIndividual" text="Individual" />
+                     </children>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                  </HBox>
+               </center>
+               <right>
+                  <Hyperlink fx:id="linkRefrescar" onAction="#actionActualizarTablaStock" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="REFRESH" size="25" />
+                     </graphic>
+                  </Hyperlink>
+               </right>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </BorderPane>
+         </top>
+         <center>
+            <BorderPane BorderPane.alignment="CENTER">
+               <center>
+                  <TableView fx:id="tablaStock" prefHeight="138.0" prefWidth="1007.0">
+                    <columns>
+                      <TableColumn fx:id="columnaEspesor" minWidth="-1.0" prefWidth="75.0" text="Espesor" />
+                        <TableColumn fx:id="columnaAncho" minWidth="-1.0" text="Ancho" />
+                        <TableColumn fx:id="columnaLargo" minWidth="-1.0" prefWidth="108.0" text="Total Largo" />
+                        <TableColumn fx:id="columnaCantidad" prefWidth="75.0" text="Cantidad" />
+                        <TableColumn fx:id="columnaPies" prefWidth="75.0" text="Pies" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </center>
+               <bottom>
+                  <VBox spacing="5.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <BorderPane>
+                           <right>
+                              <HBox id="hboxTotal" styleClass="hbox-center" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label id="lblTotal" styleClass="label-bold" text="Total:" />
+                                    <Label fx:id="lblTotal" text="lblTotal" />
+                                 </children>
+                              </HBox>
+                           </right>
+                        </BorderPane>
+                        <Separator prefWidth="200.0" />
+                     </children>
+                  </VBox>
+               </bottom>
+            </BorderPane>
+         </center>
+         <bottom>
+            <BorderPane styleClass="border-pane" BorderPane.alignment="CENTER">
+               <left>
+                  <JFXButton fx:id="btnPedidosStock" onAction="#actionPedidosStock" text="Pedidos de Stock" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="BARS" size="20" />
+                     </graphic>
+                  </JFXButton>
+               </left>
+               <center>
+                  <JFXButton fx:id="btnReporteStock" onAction="#actionReporteStock" text="Ver en reporte" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="FILE_TEXT_ALT" size="20" />
+                     </graphic>
+                  </JFXButton>
+               </center>
+               <right>
+                  <JFXButton fx:id="btnVerProductosEliminados" onAction="#actionVerProductosEliminados" text="Ver productos eliminados" BorderPane.alignment="CENTER" />
+               </right>
+            </BorderPane>
+         </bottom>
+      </BorderPane>
+      <BorderPane fx:id="panelDerecho" prefHeight="200.0" prefWidth="200.0">
+         <center>
+            <TableView fx:id="tablaDetalleProducto" prefHeight="159.0" prefWidth="454.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="columnaEspesor2" prefWidth="75.0" text="Espesor" />
+                  <TableColumn fx:id="columnaAncho2" prefWidth="250.0" text="Ancho" />
+                  <TableColumn fx:id="columnaLargo2" prefWidth="247.0" text="Largo" />
+                <TableColumn fx:id="columnaPies2" prefWidth="75.0" text="Pies" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </center>
+         <bottom>
+            <VBox fx:id="panelSur" prefHeight="121.0" prefWidth="598.0" styleClass="vbox" BorderPane.alignment="CENTER">
+               <children>
+                  <GridPane styleClass="grid-pane">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="488.0" minWidth="10.0" prefWidth="309.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="lblEspesor" prefHeight="21.0" prefWidth="63.0" styleClass="label-bold" text="Espesor:" />
+                        <TextField fx:id="tfEspesor" prefHeight="31.0" prefWidth="124.0" GridPane.columnIndex="1" />
+                        <Label fx:id="lblAncho" prefHeight="21.0" prefWidth="63.0" styleClass="label-bold" text="Ancho:" GridPane.rowIndex="1" />
+                        <TextField fx:id="tfAncho" prefHeight="31.0" prefWidth="124.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="lblLargo" prefHeight="21.0" prefWidth="63.0" styleClass="label-bold" text="Largo:" GridPane.rowIndex="2" />
+                        <TextField fx:id="tfLargo" prefHeight="34.0" prefWidth="327.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <JFXButton fx:id="btnEliminarProducto" onAction="#actionEliminarProducto" prefHeight="25.0" prefWidth="288.0" styleClass="boton-rojo" text="Eliminar" GridPane.rowIndex="3">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="CLOSE" size="25" text="" />
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="btnGuardar" onAction="#actionGuardarCambios" prefHeight="25.0" prefWidth="377.0" styleClass="boton-verde" text="Guardar cambios" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="CHECK" size="25" />
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+         </bottom>
+         <top>
+            <BorderPane prefHeight="0.0" prefWidth="598.0" styleClass="border-pane" BorderPane.alignment="CENTER">
+               <left>
+                  <Label fx:id="labelHeader" styleClass="label-header" text="Detalle" BorderPane.alignment="CENTER" />
+               </left>
+            </BorderPane>
+         </top>
+      </BorderPane>
+   </items>
+</SplitPane>

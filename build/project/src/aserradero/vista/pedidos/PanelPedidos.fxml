@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import org.controlsfx.control.ToggleSwitch?>
+
+<SplitPane fx:id="panelRaiz" dividerPositions="0.40214888718342284" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aserradero.vista.pedidos.PedidosControlador">
+   <items>
+      <BorderPane prefHeight="600.0" prefWidth="996.0">
+         <center>
+            <TableView fx:id="tablaPedidos" prefHeight="540.0" prefWidth="485.0" BorderPane.alignment="CENTER">
+              <columns>
+                  <TableColumn fx:id="columnaNumeroPedido" prefWidth="75.0" text="#" />
+                <TableColumn fx:id="columnaCliente" prefWidth="75.0" text="Cliente" />
+                <TableColumn fx:id="columnaFechaToma" prefWidth="75.0" text="Fecha Alta" />
+                  <TableColumn fx:id="columnaFechaEntrega" prefWidth="75.0" text="Fecha Entrega" />
+                  <TableColumn fx:id="columnaForma" prefWidth="75.0" text="Forma" />
+                  <TableColumn fx:id="columnaEstado" prefWidth="75.0" text="Estado" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </center>
+         <top>
+            <BorderPane prefHeight="12.0" prefWidth="587.0" styleClass="border-pane" BorderPane.alignment="CENTER">
+               <center>
+                  <HBox alignment="CENTER_LEFT" spacing="5.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <TextField fx:id="filtroCliente" prefHeight="31.0" prefWidth="124.0" promptText="Cliente" />
+                        <JFXCheckBox fx:id="checkEntregados" checkedColor="#5a5a5a" text="Entregadas" />
+                        <JFXCheckBox fx:id="checkEnCurso" text="En curso" />
+                        <JFXCheckBox fx:id="checkPendientes" text="Pendientes" />
+                        <JFXCheckBox fx:id="checkListos" text="Listas para entregar" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+               </center>
+               <left>
+                  <Label styleClass="label-bold" text="Filtrar por: " BorderPane.alignment="CENTER">
+                     <padding>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </padding></Label>
+               </left>
+               <right>
+                  <Hyperlink fx:id="linkRefrescar" onAction="#actionActualizarTablaPedidos" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <FontAwesomeIconView accessibleHelp="Refrescar" glyphName="REFRESH" size="25" />
+                     </graphic>
+                  </Hyperlink>
+               </right>
+            </BorderPane>
+         </top>
+         <bottom>
+            <BorderPane prefHeight="0.0" prefWidth="677.0" styleClass="border-pane" BorderPane.alignment="CENTER">
+               <center>
+                  <JFXButton fx:id="btnNuevoPedido" onAction="#actionNuevoPedido" text="Nueva venta" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="PLUS" size="20" />
+                     </graphic>
+                  </JFXButton>
+               </center>
+               <left>
+                  <JFXButton fx:id="btnInformes" onAction="#actionInformes" text="Informes de ventas" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="FILE_TEXT_ALT" size="20" />
+                     </graphic>
+                  </JFXButton>
+               </left>
+            </BorderPane>
+         </bottom>
+      </BorderPane>
+      <BorderPane fx:id="panelDerecho" prefHeight="200.0" prefWidth="200.0">
+         <top>
+            <BorderPane prefHeight="21.0" prefWidth="817.0" styleClass="border-pane" BorderPane.alignment="CENTER">
+               <left>
+                  <Label fx:id="lblDetalle" styleClass="label-header" text="Detalle" BorderPane.alignment="CENTER" />
+               </left>
+               <bottom>
+                  <Separator prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </bottom>
+               <right>
+                  <HBox alignment="CENTER_LEFT" spacing="5.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <JFXButton fx:id="btnReporteOrdenAserrado" onAction="#actionReporteOrdenPedido" text="Ver orden de aserrado para imprimir">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="FILE_TEXT_ALT" size="20" />
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="btnReporteOrdenArmado" onAction="#actionReporteOrdenPedido" text="Ver orden de armado para imprimir">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="FILE_TEXT_ALT" size="20" />
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="btnReporteDetallePedido" onAction="#actionReporteDetallePedido" text="Ver detalle para imprimir">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="FILE_TEXT_ALT" size="20" />
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </right>
+            </BorderPane>
+         </top>
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <center>
+                  <TableView fx:id="tablaDetalle" prefHeight="401.0" prefWidth="628.0" BorderPane.alignment="CENTER">
+                    <columns>
+                      <TableColumn fx:id="columnaEspesor" prefWidth="75.0" text="Espesor" />
+                        <TableColumn fx:id="columnaAncho" prefWidth="75.0" text="Ancho" />
+                        <TableColumn fx:id="columnaLargo" prefWidth="91.0" text="Largo" />
+                        <TableColumn fx:id="columnaUnidades" prefWidth="59.0" text="Cantidad" />
+                        <TableColumn fx:id="columnaPies" prefWidth="75.0" text="Pies" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </center>
+               <top>
+                  <VBox prefHeight="200.0" BorderPane.alignment="CENTER_LEFT">
+                     <children>
+                        <Label styleClass="label-subtitle" text="Datos del cliente" />
+                        <GridPane fx:id="gridDetalle" prefHeight="120.0" prefWidth="561.0" styleClass="grid-pane">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="15.0" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="5.0" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label styleClass="label-bold" text="Nombre y apellido:" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="lblCliente" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label styleClass="label-bold" text="Teléfono:" GridPane.rowIndex="2" />
+                              <Label fx:id="lblTelefono" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label styleClass="label-bold" text="Dirección:" GridPane.rowIndex="6" />
+                              <Label fx:id="lblDireccion" text="-" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <Label styleClass="label-bold" text="Localidad:" GridPane.rowIndex="7" />
+                              <Label fx:id="lblLocalidad" text="-" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <Label styleClass="label-bold" text="DNI:" GridPane.rowIndex="3" />
+                              <Label styleClass="label-bold" text="CUIT:" GridPane.rowIndex="4" />
+                              <Label styleClass="label-bold" text="Razón Social" GridPane.rowIndex="5" />
+                              <Label fx:id="lblDni" text="-" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="lblRazonSocial" text="-" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label fx:id="lblCuit" text="-" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                           </children>
+                        </GridPane>
+                        <Label styleClass="label-subtitle" text="Datos de la orden de venta" />
+                        <GridPane styleClass="grid-pane">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label styleClass="label-bold" text="Número de orden:" />
+                              <Label styleClass="label-bold" text="Fecha de alta:" GridPane.rowIndex="1" />
+                              <Label styleClass="label-bold" text="Estado:" GridPane.rowIndex="2" />
+                              <Label fx:id="lblNumPedido" text="-" GridPane.columnIndex="1" />
+                              <Label fx:id="lblEstado" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="lblFechaT" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label styleClass="label-bold" text="Fecha de entrega:" GridPane.rowIndex="3" />
+                              <Label fx:id="lblFechaE" text="-" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label styleClass="label-bold" text="Forma:" GridPane.rowIndex="4" />
+                              <Label fx:id="lblForma" text="-" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label styleClass="label-bold" text="Fecha de última modificación:" GridPane.rowIndex="5" />
+                              <Label fx:id="lblFechaModificacion" text="-" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label styleClass="label-bold" text="Productos cargados:" GridPane.rowIndex="6" />
+                              <JFXToggleButton fx:id="toggleClasificar" alignment="CENTER_LEFT" prefWidth="221.0" size="6.0" text="Clasificar por espesor y ancho" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
+               </top>
+               <bottom>
+                  <VBox spacing="5.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <BorderPane>
+                           <right>
+                              <HBox id="hboxTotal" alignment="CENTER_RIGHT" spacing="5.0" styleClass="hbox-center" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label id="lblTotal" styleClass="label-bold" text="Total:" />
+                                    <Label fx:id="lblTotal" text="lblTotal" />
+                                 </children>
+                              </HBox>
+                           </right>
+                           <center>
+                              <ToggleSwitch fx:id="tsListo" alignment="CENTER" contentDisplay="RIGHT" prefHeight="18.0" prefWidth="29.0" text="Marcar como lista para la entrega" BorderPane.alignment="CENTER">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="CHECK" size="5" />
+                                 </graphic>
+                              </ToggleSwitch>
+                           </center>
+                        </BorderPane>
+                        <Separator prefWidth="200.0" />
+                     </children>
+                  </VBox>
+               </bottom>
+            </BorderPane>
+         </center>
+         <bottom>
+            <BorderPane prefHeight="10.0" prefWidth="638.0" styleClass="border-pane" BorderPane.alignment="CENTER">
+               <left>
+                  <JFXButton fx:id="btnCancelarPedido" onAction="#actionCancelarPedido" styleClass="boton-rojo" text="Cancelar orden" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="CLOSE" size="20" styleClass="fontAsesome-check" />
+                     </graphic>
+                  </JFXButton>
+               </left>
+               <center>
+                  <JFXButton fx:id="btnConfEntrega" onAction="#actionConfirmarEntrega" styleClass="boton-verde" text="Confirmar entrega" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="CHECK" size="20" />
+                     </graphic>
+                  </JFXButton>
+               </center>
+               <right>
+                  <JFXButton fx:id="btnModificarPedido" onAction="#actionModificarPedido" styleClass="boton-naranja" text="Modificar orden" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="EDIT" size="20" />
+                     </graphic>
+                  </JFXButton>
+               </right>
+            </BorderPane>
+         </bottom>
+      </BorderPane>
+   </items>
+</SplitPane>

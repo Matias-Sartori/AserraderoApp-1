@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.control.Tab?>
+
+<JFXTabPane fx:id="panelAdministrador" prefHeight="488.0" prefWidth="1031.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aserradero.vista.administrador.AdministradorControlador">
+   <tabs>
+      <Tab fx:id="tabMenuPrincipal" closable="false" text="Inicio" />
+      <Tab fx:id="tabClientes" closable="false" text="Clientes" />
+      <Tab fx:id="tabPedidos" closable="false" text="Ventas" />
+      <Tab fx:id="tabStock" closable="false" text="Stock" />
+      <Tab fx:id="tabProduccion" closable="false" text="Producción" />
+   </tabs>
+</JFXTabPane>

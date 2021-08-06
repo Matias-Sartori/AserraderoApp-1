@@ -1,0 +1,1 @@
+{"administrador":"administrador","passwordAdmin":"40bd001563085fc35165329ea1ff5c5ecbdbbeef","empleado":"empleado","passwordEmpleado":"40bd001563085fc35165329ea1ff5c5ecbdbbeef"}

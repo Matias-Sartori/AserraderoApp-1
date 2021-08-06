@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Aserradero_2.jnlp">
+  <information>
+    <title>Aserradero_2</title>
+    <vendor>aserradero</vendor>
+    <description>AserraderoApp</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Aserradero_2.jar" size="568205" download="eager" />
+    <jar href="libs\commons-beanutils-1.9.3.jar" size="246174" download="eager" />
+    <jar href="libs\commons-codec-1.11.jar" size="335042" download="eager" />
+    <jar href="libs\commons-collections-3.2.1.jar" size="575389" download="eager" />
+    <jar href="libs\commons-digester-2.1.jar" size="196768" download="eager" />
+    <jar href="libs\commons-logging-1.2.jar" size="61829" download="eager" />
+    <jar href="libs\controlsfx-8.40.14.jar" size="1215643" download="eager" />
+    <jar href="libs\controlsfx-samples-8.40.14.jar" size="725707" download="eager" />
+    <jar href="libs\fontawesomefx-commons-8.15.jar" size="20957" download="eager" />
+    <jar href="libs\fontawesomefx-fontawesome-4.7.0-5.jar" size="136891" download="eager" />
+    <jar href="libs\fxsampler-1.0.10.jar" size="30882" download="eager" />
+    <jar href="libs\gson-2.8.1.jar" size="232620" download="eager" />
+    <jar href="libs\itext-pdfa-5.5.4.jar" size="62418" download="eager" />
+    <jar href="libs\itextpdf-5.5.4.jar" size="2148390" download="eager" />
+    <jar href="libs\jasperreports-6.0.0.jar" size="5144510" download="eager" />
+    <jar href="libs\javamail-1.4.7.jar" size="521000" download="eager" />
+    <jar href="libs\jfoenix-8.0.8.jar" size="2708772" download="eager" />
+    <jar href="libs\log4j-api-2.13.1.jar" size="292243" download="eager" />
+    <jar href="libs\log4j-core-2.13.1.jar" size="1702810" download="eager" />
+    <jar href="libs\material-design-icons-3.0.1.jar" size="6781388" download="eager" />
+    <jar href="libs\mysql-connector-java-5.0.8-bin.jar" size="540852" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="0" height="0" main-class="aserradero.AserraderoMain"  name="AserraderoApp" />
+  <update check="background"/>
+</jnlp>

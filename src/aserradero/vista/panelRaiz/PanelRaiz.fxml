@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane fx:id="panelRaiz" prefHeight="407.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aserradero.vista.panelRaiz.PanelRaizControlador">
+   <top>
+      <BorderPane fx:id="panelNorte" prefHeight="11.0" prefWidth="560.0" styleClass="panel-footer" BorderPane.alignment="CENTER">
+         <center>
+            <HBox fx:id="hboxCentro" alignment="CENTER" prefHeight="25.0" prefWidth="447.0" spacing="2.0" styleClass="hbox-center" BorderPane.alignment="CENTER">
+               <children>
+                  <FontAwesomeIconView glyphName="USER" size="25" />
+                  <Label fx:id="lblUsuario" text="Tipo" />
+               </children>
+            </HBox>
+         </center>
+         <right>
+            <Hyperlink fx:id="hyperlinkCerrarSesion" alignment="TOP_RIGHT" onAction="#actionCerrarSesion" text="Cerrar sesión" BorderPane.alignment="CENTER">
+               <graphic>
+                  <FontAwesomeIconView glyphName="SIGN_OUT" size="25" />
+               </graphic>
+            </Hyperlink>
+         </right>
+         <left>
+            <HBox spacing="5.0" styleClass="hbox" BorderPane.alignment="CENTER">
+               <children>
+                  <MenuBar fx:id="menu" prefWidth="24.0">
+                    <menus>
+                      <Menu mnemonicParsing="false">
+                        <items>
+                          <MenuItem fx:id="menuItemPreferencias" mnemonicParsing="false" onAction="#actionPreferencias" text="Preferencias">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="COG" size="20" />
+                                 </graphic>
+                              </MenuItem>
+                              <MenuItem fx:id="menuItemPantallaCompleta" mnemonicParsing="false" onAction="#actionPantallaCompleta" text="Pantalla completa">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="EXPAND" size="20" />
+                                 </graphic>
+                              </MenuItem>
+                              <MenuItem fx:id="menuItemSalir" mnemonicParsing="false" onAction="#actionSalir" text="Salir">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="POWER_OFF" size="20" />
+                                 </graphic>
+                              </MenuItem>
+                        </items>
+                           <graphic>
+                              <FontAwesomeIconView glyphName="ELLIPSIS_V" size="25" />
+                           </graphic>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" styleClass="separator-menu" />
+                  <Hyperlink fx:id="hyperlinkAtras" onAction="#actionAtras">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="ARROW_LEFT" size="25" />
+                     </graphic>
+                  </Hyperlink>
+                  <Hyperlink fx:id="hyperlinkAdelante" onAction="#actionSiguiente">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="ARROW_RIGHT" size="25" />
+                     </graphic>
+                  </Hyperlink>
+               </children>
+            </HBox>
+         </left>
+         <bottom>
+            <Separator prefWidth="200.0" styleClass="separator-menu" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </top>
+</BorderPane>

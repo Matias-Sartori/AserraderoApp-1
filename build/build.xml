@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<project name="Aserradero_2" default="do-deploy" basedir="."  xmlns:fx="javafx:com.sun.javafx.tools.ant">
+	<target name="init-fx-tasks">
+		<path id="fxant">
+			<filelist>
+				<file name="${java.home}\..\lib\ant-javafx.jar"/>
+				<file name="${java.home}\lib\jfxrt.jar"/>
+				<file name="${basedir}"/>
+			</filelist>
+		</path>
+	
+		<taskdef resource="com/sun/javafx/tools/ant/antlib.xml"
+			uri="javafx:com.sun.javafx.tools.ant"
+			classpathref="fxant"/>
+	</target>
+	<target name="setup-staging-area">
+		<delete dir="externalLibs" />
+		<delete dir="project" />
+		<delete dir="projectRefs" />
+	
+		<mkdir dir="externalLibs" />
+	
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="commons-beanutils-1.9.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="itextpdf-5.5.4.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="material-design-icons-3.0.1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="controlsfx-8.40.14.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="javamail-1.4.7.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="commons-digester-2.1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="gson-2.8.1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="commons-collections-3.2.1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="commons-codec-1.11.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="log4j-api-2.13.1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="jasperreports-6.0.0.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="fontawesomefx-commons-8.15.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="mysql-connector-java-5.0.8-bin.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="jfoenix-8.0.8.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="fxsampler-1.0.10.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="itext-pdfa-5.5.4.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="commons-logging-1.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="controlsfx-samples-8.40.14.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="fontawesomefx-fontawesome-4.7.0-5.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="D:\Librerias-aserradero">
+				<filename name="log4j-core-2.13.1.jar"/>
+			</fileset>
+		</copy>
+	
+		<mkdir dir="project" />
+		<copy todir="project">
+			<fileset dir="D:\Workspace\eclipse-workspace\Aserradero_2">
+				<include name="src/**" />
+			</fileset>
+		</copy>
+	
+		<mkdir dir="projectRefs" />
+	</target>
+	<target name='do-compile'>
+		<delete dir="build" />
+		<mkdir dir="build/src" />
+		<mkdir dir="build/libs" />
+		<mkdir dir="build/classes" />
+	
+		<!-- Copy project-libs references -->
+		<copy todir="build/libs">
+			<fileset dir="externalLibs">
+				<include name="mysql-connector-java-5.0.8-bin.jar"/>
+				<include name="commons-digester-2.1.jar"/>
+				<include name="commons-collections-3.2.1.jar"/>
+				<include name="fontawesomefx-commons-8.15.jar"/>
+				<include name="fxsampler-1.0.10.jar"/>
+				<include name="controlsfx-8.40.14.jar"/>
+				<include name="jfoenix-8.0.8.jar"/>
+				<include name="commons-logging-1.2.jar"/>
+				<include name="commons-beanutils-1.9.3.jar"/>
+				<include name="log4j-core-2.13.1.jar"/>
+				<include name="gson-2.8.1.jar"/>
+				<include name="itextpdf-5.5.4.jar"/>
+				<include name="javamail-1.4.7.jar"/>
+				<include name="controlsfx-samples-8.40.14.jar"/>
+				<include name="jasperreports-6.0.0.jar"/>
+				<include name="itext-pdfa-5.5.4.jar"/>
+				<include name="commons-codec-1.11.jar"/>
+				<include name="fontawesomefx-fontawesome-4.7.0-5.jar"/>
+				<include name="log4j-api-2.13.1.jar"/>
+				<include name="material-design-icons-3.0.1.jar"/>
+			</fileset>
+		</copy>
+	
+		<!-- Copy project references -->
+	
+		<!-- Copy project sources itself -->
+		<copy todir="build/src">
+			<fileset dir="project/src">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+	
+		<javac includeantruntime="false" source="1.8" target="1.8" srcdir="build/src" destdir="build/classes" encoding="Cp1252">
+			<classpath>
+				<fileset dir="build/libs">
+					<include name="*"/>
+				</fileset>
+			</classpath>
+		</javac>
+	
+		<!-- Copy over none Java-Files -->
+		<copy todir="build/classes">
+		<fileset dir="project/src">
+			<exclude name="**/*.java"/>
+		</fileset>
+		</copy>
+	
+	
+	</target>
+	<target name="do-deploy" depends="setup-staging-area, do-compile, init-fx-tasks">
+		<delete file="dist"/>
+		<delete file="deploy" />
+	
+		<mkdir dir="dist" />
+		<mkdir dir="dist/libs" />
+	
+		<copy todir="dist/libs">
+			<fileset dir="externalLibs">
+				<include name="*" />
+			</fileset>
+		</copy>
+	
+	
+		<fx:resources id="appRes">
+			<fx:fileset dir="dist" includes="Aserradero_2.jar"/>
+			<fx:fileset dir="dist" includes="libs/*"/>
+			<fx:fileset dir="dist" includes="resources/**"/>
+		</fx:resources>
+	
+		<fx:application id="fxApplication"
+			name="AserraderoApp"
+			mainClass="aserradero.AserraderoMain"
+		/>
+	
+		<mkdir dir="build/classes/META-INF" />
+	
+	
+	
+		<fx:jar destfile="dist/Aserradero_2.jar">
+			<fx:application refid="fxApplication"/>
+			<fileset dir="build/classes">
+			</fileset>
+			<fx:resources refid="appRes"/>
+	
+			<manifest>
+				<attribute name="Implementation-Vendor" value="aserradero"/>
+				<attribute name="Implementation-Title" value="AserraderoApp"/>
+				<attribute name="Implementation-Version" value="1.0"/>
+				<attribute name="JavaFX-Feature-Proxy" value="None"/>
+			</manifest>
+		</fx:jar>
+	
+	
+		<mkdir dir="deploy" />
+		<!-- Need to use ${basedir} because somehow the ant task is calculating the directory differently -->
+		<fx:deploy
+			embedJNLP="false"
+			extension="false"
+			includeDT="false"
+			offlineAllowed="true"
+			outdir="${basedir}/deploy"
+			outfile="Aserradero_2" nativeBundles="exe"
+			updatemode="background" >
+	
+			<fx:platform basedir="${java.home}"/>
+			<fx:info title="Aserradero_2" vendor="aserradero"/>
+	
+			<fx:application refId="fxApplication"/>
+			<fx:resources refid="appRes"/>
+		</fx:deploy>
+	
+	
+	</target>
+</project>

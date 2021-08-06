@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="831.0" prefWidth="872.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aserradero.vista.login.LoginControlador">
+   <top>
+      <HBox id="hbox-login" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="candadoImagen" fitHeight="95.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../recursos/imagenes/aserradero.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <AnchorPane fx:id="panelCentro" prefHeight="279.0" prefWidth="445.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="353.0" layoutY="190.0" prefHeight="30.0" prefWidth="166.0" text="Inicio de sesión" AnchorPane.leftAnchor="353.0" AnchorPane.rightAnchor="353.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView glyphName="USER" layoutX="204.0" layoutY="365.0" size="30" text="" AnchorPane.leftAnchor="200.0" />
+            <JFXRadioButton fx:id="radioAdministrador" layoutX="291.0" layoutY="347.0" text="Administración" AnchorPane.leftAnchor="291.0" />
+            <JFXRadioButton fx:id="radioEmpleado" layoutX="490.0" layoutY="347.0" text="Producción" AnchorPane.leftAnchor="490.0" AnchorPane.rightAnchor="347.0" />
+            <FontAwesomeIconView glyphName="KEY" layoutX="200.0" layoutY="435.0" size="30" AnchorPane.leftAnchor="200.0" />
+            <JFXPasswordField fx:id="pfPassword" focusColor="#a80f0f" labelFloat="true" layoutX="291.0" layoutY="409.0" prefHeight="30.0" prefWidth="397.0" promptText="Contraseña" unFocusColor="#ae0d0d" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="200.0" />
+            <Button fx:id="btnIngresar" layoutX="200.0" layoutY="546.0" mnemonicParsing="false" onAction="#actionIngresar" prefHeight="41.0" prefWidth="274.0" styleClass="boton-naranja" text="Ingrersar" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" />
+            <Label fx:id="lblPasswordIncorrecta" layoutX="289.0" layoutY="446.0" prefHeight="17.0" prefWidth="531.0" text="La contraseña ingresada es incorrecta" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="200.0" />
+            <Separator layoutX="200.0" layoutY="602.0" prefWidth="200.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" />
+            <Separator layoutX="336.0" layoutY="219.0" prefHeight="3.0" prefWidth="172.0" AnchorPane.leftAnchor="336.0" AnchorPane.rightAnchor="364.0" />
+            <Text fill="GREY" layoutX="247.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Para acceder, deberá seleccionar el tipo de sector y su contraseña." />
+            <HBox fx:id="hboxLoading" alignment="CENTER" layoutX="354.0" layoutY="480.0" prefHeight="52.0" prefWidth="164.0" />
+            <Hyperlink fx:id="hpSalir" layoutX="412.0" layoutY="661.0" onAction="#actionSalir">
+               <graphic>
+                  <FontAwesomeIconView fill="#a8a3a3" glyphName="TIMES" size="50" />
+               </graphic>
+            </Hyperlink>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

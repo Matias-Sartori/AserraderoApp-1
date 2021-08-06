@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane prefHeight="521.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aserradero.vista.nuevoCliente.NuevoClienteControlador">
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="410.0" spacing="15.0" styleClass="hbox-header" BorderPane.alignment="CENTER">
+         <children>
+            <Label accessibleHelp="HOLA!" styleClass="label-title" text="Nuevo Cliente" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <GridPane hgap="10.0" prefHeight="438.0" prefWidth="669.0" vgap="10.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <JFXTextField fx:id="tfNombre" focusColor="#efa116" labelFloat="true" promptText="Nombre (obligatorio)" />
+            <JFXTextField fx:id="tfApellido" focusColor="#efa116" labelFloat="true" promptText="Apellido (obligatorio)" GridPane.rowIndex="1" />
+            <JFXTextField fx:id="tfTelefono" focusColor="#efa116" labelFloat="true" promptText="Teléfono" GridPane.rowIndex="2" />
+            <JFXTextField fx:id="tfDni" focusColor="#efa116" labelFloat="true" promptText="DNI" GridPane.rowIndex="3" />
+            <JFXTextField fx:id="tfCuit" focusColor="#efa116" labelFloat="true" promptText="CUIT" GridPane.rowIndex="4" />
+            <JFXTextField fx:id="tfRazon" focusColor="#efa116" labelFloat="true" promptText="Razón Social" GridPane.rowIndex="5" />
+            <JFXTextField fx:id="tfDireccion" focusColor="#efa116" labelFloat="true" promptText="Dirección" GridPane.rowIndex="6" />
+            <JFXTextField fx:id="tfCorreo" focusColor="#efa116" labelFloat="true" promptText="Correo electrónico" GridPane.rowIndex="7" />
+            <JFXComboBox fx:id="cmbLocalidad" focusColor="#efa116" labelFloat="true" prefHeight="25.0" prefWidth="525.0" promptText="Localidad" GridPane.rowIndex="8" />
+         </children>
+         <padding>
+            <Insets bottom="50.0" left="4.0" right="4.0" top="25.0" />
+         </padding>
+      </GridPane>
+   </center>
+   <bottom>
+      <JFXButton fx:id="btnConfirmar" onAction="#actionConfirmar" prefHeight="37.0" prefWidth="400.0" styleClass="boton-verde" text="Confirmar" BorderPane.alignment="CENTER">
+         <graphic>
+            <FontAwesomeIconView glyphName="CHECK" size="20" />
+         </graphic>
+         <BorderPane.margin>
+            <Insets bottom="6.0" />
+         </BorderPane.margin>
+      </JFXButton>
+   </bottom>
+</BorderPane>

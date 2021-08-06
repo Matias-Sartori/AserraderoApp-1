@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aserradero.vista.empleado.EmpleadoControlador">
+   <center>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <TableView fx:id="tablaPedidos" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                  <TableColumn fx:id="columnaNumeroPedido" prefWidth="75.0" text="Número de pedido" />
+                <TableColumn fx:id="columnaFechaT" prefWidth="75.0" text="Fecha Toma" />
+                <TableColumn fx:id="columnaEstado" prefWidth="75.0" text="Estado" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </center>
+         <top>
+            <BorderPane BorderPane.alignment="CENTER">
+               <right>
+                  <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+                     <children>
+                        <Hyperlink fx:id="hpActualizarPedidos" onAction="#actionActualizarPedidos">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="REFRESH" size="25" />
+                           </graphic>
+                        </Hyperlink>
+                     </children>
+                  </HBox>
+               </right>
+            </BorderPane>
+         </top>
+      </BorderPane>
+   </center>
+   <bottom>
+      <BorderPane styleClass="border-pane" BorderPane.alignment="CENTER">
+         <center>
+            <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <FontAwesomeIconView id="fontSeleccioanrPedido" glyphName="LONG_ARROW_UP" size="25" />
+                        <Label id="lblSeleccionarPedido" text="Seleccionar la orden que desee cargar">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <JFXButton fx:id="btnCargarPedido" onAction="#actionCargarPedido" styleClass="boton-naranja" text="Cargar productos" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </center>
+      </BorderPane>
+   </bottom>
+   <top>
+      <HBox styleClass="hbox-header" BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="label-title" text="Órdenes de carga" />
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

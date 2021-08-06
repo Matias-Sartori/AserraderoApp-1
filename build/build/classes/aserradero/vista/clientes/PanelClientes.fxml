@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
+
+<SplitPane fx:id="panelRaiz" dividerPositions="0.4658203125" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aserradero.vista.clientes.ClientesControlador">
+   <items>
+      <BorderPane fx:id="panelIzquierdo" prefHeight="639.0" prefWidth="674.0">
+         <top>
+            <BorderPane styleClass="border-pane" BorderPane.alignment="CENTER">
+               <center>
+                  <CustomTextField fx:id="tfFiltro" prefHeight="35.0" prefWidth="821.0" promptText="Buscar cliente" BorderPane.alignment="CENTER" />
+               </center>
+               <right>
+                  <Hyperlink fx:id="linkRefrescar" onAction="#actualizarTablaClientes" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="REFRESH" size="25" />
+                     </graphic>
+                  </Hyperlink>
+               </right>
+            </BorderPane>
+         </top>
+         <bottom>
+            <BorderPane prefHeight="20.0" prefWidth="840.0" styleClass="border-pane" BorderPane.alignment="CENTER">
+               <center>
+                  <JFXButton fx:id="btnNuevoCliente" contentDisplay="TOP" onAction="#actionNuevoCliente" styleClass="boton-grande" text="Nuevo cliente" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="USER_PLUS" size="20" />
+                     </graphic>
+                  </JFXButton>
+               </center>
+            </BorderPane>
+         </bottom>
+         <center>
+            <TableView fx:id="tablaClientes" prefHeight="606.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="columnaNombre" prefWidth="75.0" text="Nombre" />
+                <TableColumn fx:id="columnaApellido" prefWidth="75.0" text="Apellido" />
+                  <TableColumn fx:id="columnaEstadoCliente" prefWidth="75.0" text="Estado" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </center>
+      </BorderPane>
+      <SplitPane fx:id="panelDerecho" dividerPositions="0.554" orientation="VERTICAL" prefHeight="639.0" prefWidth="1144.0">
+         <items>
+            <BorderPane prefHeight="214.0" prefWidth="673.0">
+               <top>
+                  <BorderPane prefHeight="9.0" prefWidth="978.0" styleClass="border-pane" BorderPane.alignment="CENTER">
+                     <left>
+                        <Label id="subtitulos" fx:id="lblDatosCliente" alignment="TOP_LEFT" styleClass="label-header" text="Datos del cliente" BorderPane.alignment="CENTER" />
+                     </left>
+                     <bottom>
+                        <Separator prefWidth="200.0" BorderPane.alignment="CENTER" />
+                     </bottom>
+                  </BorderPane>
+               </top>
+               <bottom>
+                  <HBox fx:id="hboxBotonesCliente" alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <JFXButton fx:id="btnGuardar" buttonType="RAISED" onAction="#actionGuardarCambios" styleClass="boton-verde" text="Guardar cambios">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="CHECK" size="20" />
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="btnDarDeBaja" buttonType="RAISED" onAction="#actionBajaCliente" styleClass="boton-rojo" text="Dar de baja">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="USER_TIMES" size="20" />
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="btnRehabilitar" onAction="#actionRehabilitarCliente" styleClass="boton-naranja" text="Rehabilitar" />
+                     </children>
+                     <padding>
+                        <Insets bottom="4.0" />
+                     </padding>
+                  </HBox>
+               </bottom>
+               <center>
+                  <GridPane styleClass="grid-pane" vgap="10.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="481.0" minWidth="10.0" prefWidth="404.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="663.0" minWidth="10.0" prefWidth="567.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label styleClass="label-bold" text="Nombre:" />
+                        <Label styleClass="label-bold" text="Apellido:" GridPane.rowIndex="1" />
+                        <Label styleClass="label-bold" text="Teléfono:" GridPane.rowIndex="2" />
+                        <Label styleClass="label-bold" text="DNI:" GridPane.rowIndex="3" />
+                        <Label styleClass="label-bold" text="CUIT:" GridPane.rowIndex="4" />
+                        <Label styleClass="label-bold" text="Razón Social:" GridPane.rowIndex="5" />
+                        <Label styleClass="label-bold" text="Dirección:" GridPane.rowIndex="6" />
+                        <Label styleClass="label-bold" text="Correo electrónico:" GridPane.rowIndex="7" />
+                        <Label styleClass="label-bold" text="Localidad:" GridPane.rowIndex="8" />
+                        <TextField fx:id="tfNombre" GridPane.columnIndex="1" />
+                        <TextField fx:id="tfApellido" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="tfTelefono" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="tfDni" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="tfCuit" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="tfRazonSocial" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="tfDireccion" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <TextField fx:id="tfCorreo" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <ComboBox fx:id="cmbLocalidad" prefHeight="25.0" prefWidth="645.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                     </children>
+                  </GridPane>
+               </center>
+            </BorderPane>
+            <BorderPane prefHeight="78.0" prefWidth="673.0">
+               <center>
+                  <TableView fx:id="tablaHistorial" prefHeight="200.0" prefWidth="320.0" BorderPane.alignment="CENTER">
+                    <columns>
+                        <TableColumn fx:id="columnaNumeroPedido" prefWidth="75.0" text="#" />
+                      <TableColumn fx:id="columnaFechaT" prefWidth="75.0" text="Fecha Toma" />
+                        <TableColumn fx:id="columnaFechaE" prefWidth="75.0" text="Fecha Entrega" />
+                      <TableColumn fx:id="columnaEstado" prefWidth="75.0" text="Estado" />
+                        <TableColumn fx:id="columnaForma" prefWidth="75.0" text="Forma" />
+                        <TableColumn fx:id="columnaVerDetalle" prefWidth="75.0" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </center>
+               <bottom>
+                  <BorderPane prefHeight="15.0" prefWidth="978.0" styleClass="border-pane" BorderPane.alignment="CENTER" />
+               </bottom>
+               <top>
+                  <BorderPane prefHeight="0.0" prefWidth="978.0" BorderPane.alignment="CENTER">
+                     <left>
+                        <Label fx:id="lblHistorial" alignment="TOP_LEFT" styleClass="label-header" text="Historial de compras" BorderPane.alignment="CENTER" />
+                     </left>
+                  </BorderPane>
+               </top>
+            </BorderPane>
+         </items>
+      </SplitPane>
+   </items>
+</SplitPane>
