@@ -10,7 +10,8 @@ y modelado UML.
 Funcionalidades: 
 
 - ABM de clientes, pedidos de ventas y cargas de stock. 
-- Control de stock. - Historial de registros de producción. 
+- Control de stock. 
+- Historial de registros de producción. 
 - Automatización de cálculos para la obtención de cantidad de maderas medidas en pies. 
 - Generación, exportación e impresión de reportes. 
 - Generación de gráficos estadísticos.
